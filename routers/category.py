@@ -19,8 +19,8 @@ def create_new_category(
     db.commit()
     db.refresh(new_category)
     return new_category
-
-@router.get("/categories",response_model=CategoryResponse)
+@router.get("/categories", response_model=list[CategoryResponse])
+@router.get("/categories",response_model=list[CategoryResponse])
 def get_all_categories(db:Session=Depends(database.get_db)):
     category_list = db.query(models.Category).all()
     return category_list

@@ -30,13 +30,13 @@ def create_new_expense(
     db.refresh(new_expense)
     return new_expense
 
-
-@router.get("/expenses",response_model=ExpenseResponse)
+@router.get("/expenses", response_model=list[ExpenseResponse])
+@router.get("/expenses",response_model=list[ExpenseResponse])
 def get_all_expenses(
         db:Session=Depends(database.get_db),
         category_id:int | None=None,
-        min_amount:int | None=None,
-        max_amount:int| None = None,
+        min_amount:float | None=None,
+        max_amount:float| None = None,
         start_date: datetime | None = None,
         end_date: datetime | None = None,
         sort_by:str = Query("amount",pattern="^(amount|expense_date)$"),
@@ -64,7 +64,7 @@ def get_all_expenses(
 
     return to_get.offset(offset).limit(limit).all()
 
-@router.get("/expenses/{expense_id}")
+@router.get("/expenses/{expense_id}", response_model=ExpenseResponse)
 def get_expenses_by_id(expense_id:int,db:Session=Depends(database.get_db)):
     existing_expense = db.get(models.Expense,expense_id)
     if existing_expense is None:

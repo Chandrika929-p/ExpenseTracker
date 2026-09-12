@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>💰 Expense Tracker</h1>
+            <p>Manage your expenses easily</p>
+        </header>
+
+
+        <!-- ========================= -->
+        <!-- Category Section -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <h2>Categories</h2>
+
+            <div class="category-form">
+
+                <input
+                    type="text"
+                    id="category-name"
+                    placeholder="Enter category name"
+                >
+
+                <button
+                    id="add-category-btn"
+                    class="primary-btn">
+                    Add Category
+                </button>
+
+            </div>
+
+            <div id="categories-container">
+                <!-- Categories will appear here -->
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- Add Expense -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <h2>Add Expense</h2>
+
+            <div class="form-grid">
+
+                <input
+                    type="text"
+                    id="expense-name"
+                    placeholder="Expense name"
+                >
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Amount"
+                    step="0.01"
+                    min="0"
+                >
+
+                <select id="category">
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                </select>
+
+                <input
+                    type="datetime-local"
+                    id="expense-date"
+                >
+
+                <textarea
+                    id="description"
+                    placeholder="Description"
+                ></textarea>
+
+            </div>
+
+            <button
+                id="add-expense-btn"
+                class="primary-btn">
+
+                Add Expense
+
+            </button>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- Filters -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <h2>Filter & Sort</h2>
+
+            <div class="filter-grid">
+
+                <select id="filter-category">
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="number"
+                    id="min-amount"
+                    placeholder="Minimum amount"
+                    min="0"
+                >
+
+
+                <input
+                    type="number"
+                    id="max-amount"
+                    placeholder="Maximum amount"
+                    min="0"
+                >
+
+
+                <input
+                    type="date"
+                    id="start-date"
+                >
+
+
+                <input
+                    type="date"
+                    id="end-date"
+                >
+
+
+                <select id="sort-by">
+
+                    <option value="amount">
+                        Sort by Amount
+                    </option>
+
+                    <option value="expense_date">
+                        Sort by Date
+                    </option>
+
+                </select>
+
+
+                <select id="order">
+
+                    <option value="desc">
+                        Descending
+                    </option>
+
+                    <option value="asc">
+                        Ascending
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-buttons">
+
+                <button
+                    id="filter-btn"
+                    class="primary-btn">
+
+                    Apply Filter
+
+                </button>
+
+
+                <button
+                    id="show-all-btn"
+                    class="secondary-btn">
+
+                    Show All
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- Expenses -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <div class="section-heading">
+
+                <h2>Expenses</h2>
+
+                <span id="total-expense">
+                    Total: ₹0.00
+                </span>
+
+            </div>
+
+
+            <div id="expenses-container">
+
+                <p class="loading">
+                    Loading expenses...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- Edit Expense -->
+        <!-- ========================= -->
+
+        <section
+            class="card"
+            id="edit-form"
+            style="display: none;"
+        >
+
+            <h2>Edit Expense</h2>
+
+            <div class="form-grid">
+
+                <input
+                    type="text"
+                    id="edit-expense-name"
+                    placeholder="Expense name"
+                >
+
+
+                <input
+                    type="number"
+                    id="edit-amount"
+                    placeholder="Amount"
+                    step="0.01"
+                    min="0"
+                >
+
+
+                <select id="edit-category">
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="datetime-local"
+                    id="edit-expense-date"
+                >
+
+
+                <textarea
+                    id="edit-description"
+                    placeholder="Description"
+                ></textarea>
+
+            </div>
+
+
+            <div class="edit-buttons">
+
+                <button
+                    id="save-edit-btn"
+                    class="primary-btn">
+
+                    Save Changes
+
+                </button>
+
+
+                <button
+                    id="cancel-edit-btn"
+                    class="secondary-btn">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
